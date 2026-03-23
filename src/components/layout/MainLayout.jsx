@@ -1,15 +1,72 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Github, LayoutDashboard, Sword, BookOpen } from "lucide-react";
+import {
+  Github,
+  LayoutDashboard,
+  Sword,
+  BookOpen,
+  Menu,
+  X,
+} from "lucide-react";
 import { NavLink } from "react-router-dom";
 import { trainingRoutes } from "@/lib/routes";
 
 export function MainLayout({ children }) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // 사이드바 콘텐츠 (데스크톱/모바일 공용)
+  const SidebarContent = (
+    <div className="h-full py-6 pr-6 lg:py-8">
+      <h4 className="mb-2 px-2 text-sm font-semibold tracking-tight text-foreground/80">
+        수련 비급 목록 (Training Logs)
+      </h4>
+      <div className="grid grid-flow-row auto-rows-max text-sm">
+        {trainingRoutes.length > 0 ? (
+          trainingRoutes.map((route) => (
+            <NavLink
+              key={route.path}
+              to={route.path}
+              onClick={() => setIsMobileMenuOpen(false)} // 모바일에서 클릭 시 닫기
+              className={({ isActive }) =>
+                cn(
+                  "group flex w-full items-center rounded-md border border-transparent px-2 py-1.5 hover:underline",
+                  isActive
+                    ? "font-medium text-primary"
+                    : "text-muted-foreground hover:text-foreground",
+                )
+              }
+            >
+              <BookOpen className="mr-2 h-4 w-4" />
+              {route.label}
+            </NavLink>
+          ))
+        ) : (
+          <span className="px-2 py-1.5 text-muted-foreground">
+            아직 등록된 수련이 없습니다.
+            <br />
+            <span className="text-xs opacity-70">(폴더명 'training' 확인)</span>
+          </span>
+        )}
+      </div>
+    </div>
+  );
+
   return (
     <div className="flex min-h-screen flex-col bg-background font-sans text-foreground antialiased selection:bg-primary/20 selection:text-primary">
       {/* 1. Header (Sticky & Glassmorphism) */}
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto flex h-14 max-w-screen-2xl items-center px-4">
+          {/* Mobile Menu Trigger */}
+          <Button
+            variant="ghost"
+            className="mr-2 px-0 text-base hover:bg-transparent focus:ring-0 md:hidden"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            <Menu className="h-6 w-6" />
+            <span className="sr-only">Toggle Menu</span>
+          </Button>
+
           {/* Logo */}
           <div className="mr-4 flex md:mr-6">
             <a href="/" className="mr-6 flex items-center space-x-2">
@@ -52,37 +109,27 @@ export function MainLayout({ children }) {
       <div className="container mx-auto flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10 px-4">
         {/* 2. Sidebar (Desktop Only) */}
         <aside className="fixed top-14 z-30 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block">
-          <div className="h-full py-6 pr-6 lg:py-8">
-            <h4 className="mb-2 px-2 text-sm font-semibold tracking-tight text-foreground/80">
-              수련 비급 목록 (Training Logs)
-            </h4>
-            <div className="grid grid-flow-row auto-rows-max text-sm">
-              {trainingRoutes.length > 0 ? (
-                trainingRoutes.map((route) => (
-                  <NavLink
-                    key={route.path}
-                    to={route.path}
-                    className={({ isActive }) =>
-                      cn(
-                        "group flex w-full items-center rounded-md border border-transparent px-2 py-1.5 hover:underline",
-                        isActive
-                          ? "font-medium text-primary"
-                          : "text-muted-foreground hover:text-foreground",
-                      )
-                    }
-                  >
-                    <BookOpen className="mr-2 h-4 w-4" />
-                    {route.label}
-                  </NavLink>
-                ))
-              ) : (
-                <span className="px-2 py-1.5 text-muted-foreground">
-                  아직 등록된 수련이 없습니다.
-                </span>
-              )}
+          {SidebarContent}
+        </aside>
+
+        {/* Mobile Sidebar (Overlay) */}
+        {isMobileMenuOpen && (
+          <div className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm md:hidden">
+            <div className="fixed inset-y-0 left-0 z-50 w-3/4 border-r bg-background p-6 shadow-lg sm:max-w-xs animate-in slide-in-from-left-full duration-200">
+              <div className="flex items-center justify-between mb-4">
+                <span className="font-bold text-lg">Menu</span>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <X className="h-5 w-5" />
+                </Button>
+              </div>
+              {SidebarContent}
             </div>
           </div>
-        </aside>
+        )}
 
         {/* 3. Main Content */}
         <main className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
