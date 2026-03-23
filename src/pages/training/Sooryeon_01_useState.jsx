@@ -21,6 +21,11 @@ export default function Sooryeon01useState() {
   // [미션 3] 배열 타입: 인벤토리 (Array)
   const [inventory, setInventory] = useState(["낡은 목검"]);
 
+  // 승인 조건 계산 (Approval Logic)
+  const mission1Approved = combo >= 3;
+  const mission2Approved = profile.level >= 2 && profile.name === "김코딩";
+  const mission3Approved = inventory.length >= 2;
+
   // =================================================================
   // 🥋 수련 미션 (Missions)
   // =================================================================
@@ -35,9 +40,10 @@ export default function Sooryeon01useState() {
     // '이전 상태(prev)'를 확실히 보장받으려면 함수형 업데이트를 사용하라.
 
     // 🔽 아래 코드를 수정하여 콤보가 3씩 오르게 하라.
-    setCombo(combo + 1);
-    setCombo(combo + 1);
-    setCombo(combo + 1);
+    // setCombo(combo + 1);
+    // setCombo(combo + 1);
+    // setCombo(combo + 1);
+    setCombo((prev) => prev + 3);
   };
 
   // -----------------------------------------------------------------
@@ -50,8 +56,12 @@ export default function Sooryeon01useState() {
     // ES6의 Spread 연산자(...)를 사용하여 '이름'을 유지하며 '레벨'만 올려라.
 
     // 🔽 아래 코드를 작성하시오.
-    alert("아직 코드가 작성되지 않았습니다!");
+    // alert("아직 코드가 작성되지 않았습니다!");
     // setProfile({ ... });
+    setProfile((prev) => ({
+      ...prev,
+      level: prev.level + 1,
+    }));
   };
 
   // -----------------------------------------------------------------
@@ -65,7 +75,8 @@ export default function Sooryeon01useState() {
 
     const newItem = "회복 물약";
     // 🔽 아래 코드를 작성하시오.
-    alert("아직 코드가 작성되지 않았습니다!");
+    // alert("아직 코드가 작성되지 않았습니다!");
+    setInventory((prev) => [...prev, newItem]);
   };
 
   // 초기화 (Reset)
@@ -96,6 +107,9 @@ export default function Sooryeon01useState() {
           icon={Zap}
           iconClassName="text-yellow-500"
           solution={solutionData.mission1}
+          isApproved={mission1Approved}
+          detail={`React의 상태 업데이트는 **비동기적**으로 처리됩니다.
+여러 번의 업데이트를 연속으로 처리하려면, 현재 상태값이 아닌 **큐(Queue)에 예약된 이전 상태값(prev)**을 참조해야 정확한 계산이 가능합니다.`}
           actionButton={{
             label: "3연속 공격",
             onClick: handleTripleAttack,
@@ -128,6 +142,9 @@ export default function Sooryeon01useState() {
           icon={User}
           iconClassName="text-blue-500"
           solution={solutionData.mission2}
+          isApproved={mission2Approved}
+          detail={`Javascript의 객체는 **참조 타입**입니다. 속성 하나만 바꿔도 React는 객체 자체가 변했는지 알 수 없습니다.
+\`...spread\` 연산자를 사용해 기존 속성을 복사하고, 변경할 속성만 덮어써서 **새로운 주소값**을 가진 객체를 만들어야 합니다.`}
           actionButton={{
             label: "레벨 업 (Level Up)",
             onClick: handleLevelUp,
@@ -158,6 +175,9 @@ export default function Sooryeon01useState() {
           icon={Backpack}
           iconClassName="text-green-600"
           solution={solutionData.mission3}
+          isApproved={mission3Approved}
+          detail={`\`push()\`는 원본 배열을 직접 변경(Mutation)하므로 React가 감지하지 못합니다.
+대신 \`[...prev, newItem]\` 처럼 새로운 배열을 반환하거나, \`concat()\` 메서드를 사용하여 불변성을 지켜주세요.`}
           actionButton={{
             label: "아이템 획득",
             onClick: handleAddItem,
