@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -h \"from \"\"@radix-ui\" \"C:/PrivateSpace/02 dojo/codedojang/src/components/ui/\"*.jsx)",
+      "Bash(pnpm add:*)",
+      "Bash(ls src/app/training/01-useState/[slug]/)",
+      "Bash(cat src/app/training/01-useState/[slug]/page.js)",
+      "Bash(for dir:*)",
+      "Bash(do echo:*)",
+      "Read(//c/PrivateSpace/02 dojo/codedojang/src/app/training/**)",
+      "Bash(done)",
+      "Bash(for f:*)",
+      "Read(//c/PrivateSpace/02 dojo/codedojang/src/app/training/$f/**)",
+      "Bash(for topic:*)",
+      "Bash(do)",
+      "Bash(echo \"=== $topic ===\")",
+      "Read(//c/PrivateSpace/02 dojo/codedojang/src/app/training$topic/[slug]/**)",
+      "Bash(cd:*)",
+      "Bash(npm install:*)",
+      "Bash(npm list:*)",
+      "Bash(node -e \"const s = require\\(''''@codesandbox/sandpack-react''''\\); console.log\\(Object.keys\\(s\\).filter\\(k => k.includes\\(''''andpack''''\\)\\).join\\(''''\\\\n''''\\)\\)\")"
+    ]
+  }
+}

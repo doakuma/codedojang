@@ -1,50 +1,36 @@
-# 🥋 코드도장 (Codedojang)
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-> **"기본에 충실하라. 정공법(正攻法)으로 나아가라."**
+## Getting Started
 
-이 프로젝트는 최신 웹 기술 표준과 모범 사례(Best Practices)를 준수하는 React 프론트엔드 수련장입니다.
-React 19, Vite 8, Tailwind CSS v4 등 최신 기술 스택을 기반으로 **"제대로 된"** 개발 환경을 구축하는 것을 목표로 합니다.
-
-## 🏗️ 기술 스택 (Tech Stack)
-
-이 도장은 다음의 **최신 기술**을 기반으로 운영됩니다:
-
-- **Framework:** React 19 (ESM 모드)
-- **Build Tool:** Vite 8
-- **Package Manager:** pnpm (Corepack 기반)
-- **Styling:** Tailwind CSS v4 (CSS-first, `@theme` 활용)
-- **UI Component:** shadcn/ui (Radix UI 기반)
-- **State Management:** TanStack Query v5 (Server) + Context API (Client)
-
-## 🛠️ 개발 원칙: "정공법(正攻法)"
-
-우리는 편법(Hack)보다 **표준(Standard)**을 지향합니다.
-
-1. **ESM 준수:** `require` 대신 `import`를, `__dirname` 대신 `import.meta.url`을 사용합니다.
-2. **Tailwind v4 최적화:** 구형 설정 파일(`tailwind.config.js`)에 의존하지 않고, CSS 변수와 `@import "tailwindcss"`를 활용합니다.
-3. **컴포넌트 주권:** `src/components/ui`는 외부 라이브러리가 아닌 **우리가 관리하는 소스 코드**입니다.
-
-## 📂 폴더 구조 (Structure)
-
-도장의 정리는 마음의 정리입니다. 우리는 다음과 같은 구조를 따릅니다.
-
-- **`src/components/ui/`**: shadcn/ui 기반의 기초 UI 컴포넌트들이 위치합니다. (외부 라이브러리가 아닌 내부 코드로 관리)
-- **`src/lib/utils.js`**: `cn`(className 병합) 등 스타일링 관련 유틸리티 함수가 위치합니다.
-- **`src/index.css`**: Tailwind CSS v4의 설정과 커스텀 테마가 정의된 단일 진실 공급원(Single Source of Truth)입니다.
-- **`jsconfig.json`**: `@/` 경로 별칭(Alias) 설정을 담당합니다.
-
-## 🚀 시작하기 (Getting Started)
-
-이 프로젝트는 `pnpm`을 패키지 매니저로 사용합니다.
+First, run the development server:
 
 ```bash
-# 의존성 설치
-pnpm install
-
-# 개발 서버 실행
+npm run dev
+# or
+yarn dev
+# or
 pnpm dev
+# or
+bun dev
 ```
 
----
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-_Code written by Gemini Code Assist, following the Way of the Codedojang._
+You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
