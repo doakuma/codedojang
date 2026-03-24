@@ -3,19 +3,15 @@ import { ChevronRight } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import MarkdownViewer from '@/components/shared/MarkdownViewer';
 import { CodeEditor } from '@/components/shared/CodeEditor';
-
-const TOPIC_TITLES = {
-  '01-useState': 'useState',
-  '02-useEffect': 'useEffect',
-  '03-useRef': 'useRef',
-  '04-customHooks': 'Custom Hooks',
-  '05-context': 'Context API',
-  '06-optimization': 'Optimization',
-  '07-nextjs-rsc': 'Next.js & RSC',
-};
+import { getTopic, getGates } from '@/lib/curriculum';
 
 export function GatePage({ gate, topicId }) {
-  const topicTitle = TOPIC_TITLES[topicId] ?? topicId;
+  const topic = getTopic(topicId);
+  const topicTitle = topic?.title?.split('. ')[1]?.split(':')[0] ?? topicId;
+
+  const gates = getGates(topicId);
+  const prevGate = gates.find((g) => g.id === gate.id - 1) ?? null;
+  const nextGate = gates.find((g) => g.id === gate.id + 1) ?? null;
 
   return (
     <div className="container mx-auto max-w-5xl space-y-8 pb-10">
@@ -61,23 +57,35 @@ export function GatePage({ gate, topicId }) {
       </section>
 
       {/* 관문 이동 */}
-      <nav className="flex justify-between text-sm">
-        {gate.id > 1 ? (
+      <nav className="flex items-center justify-between text-sm">
+        {prevGate ? (
           <Link
-            href={`/training/${topicId}`}
+            href={`/training/${topicId}/${prevGate.slug}`}
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
-            ← 목록으로
+            ← {prevGate.title}
           </Link>
         ) : (
           <span />
         )}
+
         <Link
           href={`/training/${topicId}`}
-          className="text-muted-foreground hover:text-foreground transition-colors"
+          className="text-muted-foreground hover:text-foreground transition-colors px-4"
         >
-          목록으로 →
+          목록으로
         </Link>
+
+        {nextGate ? (
+          <Link
+            href={`/training/${topicId}/${nextGate.slug}`}
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            {nextGate.title} →
+          </Link>
+        ) : (
+          <span />
+        )}
       </nav>
     </div>
   );
