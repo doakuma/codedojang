@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -h \"from \"\"@radix-ui\" \"C:/PrivateSpace/02 dojo/codedojang/src/components/ui/\"*.jsx)",
+      "Bash(pnpm add:*)"
+    ]
+  }
+}

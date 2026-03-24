@@ -26,7 +26,7 @@ import {
 } from "@/components/ui/accordion";
 import { BookOpen, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { MarkdownViewer } from "./MarkdownViewer";
+import MarkdownViewer from "./MarkdownViewer";
 
 export function SooryeonCard({
   title,
