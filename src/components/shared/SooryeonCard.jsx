@@ -87,14 +87,21 @@ export function SooryeonCard({
           </div>
         )}
       </CardContent>
-      <CardFooter className="flex justify-between gap-2">
-        <Button
-          className="flex-1"
-          variant={actionButton?.variant || "default"}
-          onClick={actionButton?.onClick}
-        >
-          {actionButton?.label}
-        </Button>
+      <CardFooter
+        className={cn(
+          "flex gap-2",
+          actionButton ? "justify-between" : "justify-end",
+        )}
+      >
+        {actionButton && (
+          <Button
+            className="flex-1"
+            variant={actionButton.variant || "default"}
+            onClick={actionButton.onClick}
+          >
+            {actionButton.label}
+          </Button>
+        )}
 
         {solution && (
           <Dialog>

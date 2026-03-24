@@ -132,7 +132,7 @@ export function MainLayout({ children }) {
         )}
 
         {/* 3. Main Content */}
-        <main className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
+        <main className="relative py-6 lg:gap-10 lg:py-8 ">
           <div className="mx-auto w-full min-w-0">
             {/* Fade-in Animation Wrapper */}
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 ease-in-out">
