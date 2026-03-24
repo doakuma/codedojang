@@ -15,7 +15,10 @@
       "Bash(do)",
       "Bash(echo \"=== $topic ===\")",
       "Read(//c/PrivateSpace/02 dojo/codedojang/src/app/training$topic/[slug]/**)",
-      "Bash(cd:*)"
+      "Bash(cd:*)",
+      "Bash(npm install:*)",
+      "Bash(npm list:*)",
+      "Bash(node -e \"const s = require\\(''''@codesandbox/sandpack-react''''\\); console.log\\(Object.keys\\(s\\).filter\\(k => k.includes\\(''''andpack''''\\)\\).join\\(''''\\\\n''''\\)\\)\")"
     ]
   }
 }
