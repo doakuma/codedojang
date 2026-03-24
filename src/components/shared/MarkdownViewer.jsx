@@ -2,7 +2,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { cn } from "@/lib/utils";
 
-export function MarkdownViewer({ content, className }) {
+export default function MarkdownViewer({ content, className }) {
   if (!content) return null;
 
   return (
