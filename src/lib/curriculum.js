@@ -6,6 +6,7 @@
 const TOPICS = {
   '01-useState': {
     title: '01. useState: 상태의 본질과 렌더링 엔진',
+    shortTitle: 'useState',
     badges: ['React', 'Hook', 'State'],
     description: '리액트 상태 관리의 근본 원리를 체득하고, 7가지 실무 패턴으로 렌더링 엔진을 완전히 지배하라.',
     theoryContent: `## 상태(State)란 무엇인가: UI와 데이터의 선언적 연결
@@ -21,6 +22,7 @@ const TOPICS = {
   },
   '02-useEffect': {
     title: '02. useEffect: 사이드 이펙트와 선언적 동기화',
+    shortTitle: 'useEffect',
     badges: ['React', 'Hook', 'Side Effect'],
     description: "외부 세계와의 통신을 '동기화' 관점으로 재정의하고, 7가지 실무 패턴으로 Effect를 완전히 통제하라.",
     theoryContent: `## 사이드 이펙트(Side Effect)의 관리: 리액트 외부 세계와의 통신
@@ -36,6 +38,7 @@ const TOPICS = {
   },
   '03-useRef': {
     title: '03. useRef & DOM: 탈출구와 명령적 제어',
+    shortTitle: 'useRef & DOM',
     badges: ['React', 'Hook', 'DOM'],
     description: '렌더링 궤도를 벗어난 ref의 두 얼굴을 이해하고, 7가지 패턴으로 명령적 제어를 완전히 장악하라.',
     theoryContent: `## 레퍼런스(Reference)의 철학: 렌더링 궤도를 벗어난 영속적 기억
@@ -51,6 +54,7 @@ const TOPICS = {
   },
   '04-customHooks': {
     title: '04. Custom Hooks: 로직의 추상화와 재사용성',
+    shortTitle: 'Custom Hooks',
     badges: ['React', 'Hook', 'Abstraction'],
     description: '비즈니스 로직을 독립 선언하고, 7가지 실전 패턴으로 컴포넌트를 날렵하게 만들어라.',
     theoryContent: `## 커스텀 훅(Custom Hooks)의 존재 이유: 비즈니스 로직의 독립 선언
@@ -66,6 +70,7 @@ UI와 로직을 분리하여 코드 가독성, 테스트 가능성, 재사용성
   },
   '05-context': {
     title: '05. Context API & 전역 상태 최적화',
+    shortTitle: 'Context API',
     badges: ['React', 'Context', 'Global State'],
     description: 'Prop Drilling을 끊어내고, 7가지 설계 패턴으로 전역 상태의 함정을 피하며 고속도로를 완성하라.',
     theoryContent: `## 전역 상태(Global State)의 설계: Prop Drilling을 넘어서는 데이터 고속도로
@@ -81,6 +86,7 @@ UI와 로직을 분리하여 코드 가독성, 테스트 가능성, 재사용성
   },
   '06-optimization': {
     title: '06. 성능 최적화: 메모이제이션의 정공법',
+    shortTitle: '성능 최적화',
     badges: ['React', 'Performance', 'Memoization'],
     description: '측정 없는 최적화는 금물. 7가지 기법으로 진짜 병목을 타격하고 렌더링 비용을 정복하라.',
     theoryContent: `## 메모이제이션(Memoization)의 본질: 불필요한 계산과 렌더링 비용 절감
@@ -96,6 +102,7 @@ UI와 로직을 분리하여 코드 가독성, 테스트 가능성, 재사용성
   },
   '07-nextjs-rsc': {
     title: '07. Next.js & RSC: 서버 컴포넌트 문파',
+    shortTitle: 'Next.js & RSC',
     badges: ['Next.js', 'RSC', 'SSR'],
     description: '브라우저의 짐을 서버로 옮기고, 7가지 핵심 패턴으로 풀스택 리액트의 정점을 정복하라.',
     theoryContent: `## 서버 사이드 렌더링(SSR)과 RSC: 브라우저의 짐을 서버로 옮기기

@@ -81,62 +81,66 @@ export function SooryeonCard({
           </Accordion>
         )}
       </CardHeader>
-      <CardContent className="flex-1 space-y-4">
-        {children}
-        {guideText && (
-          <div className="text-sm text-muted-foreground bg-muted/50 p-3 rounded-md">
-            {guideText}
-          </div>
-        )}
-      </CardContent>
-      <CardFooter
-        className={cn(
-          "flex gap-2",
-          actionButton ? "justify-between" : "justify-end",
-        )}
-      >
-        {actionButton && (
-          <Button
-            className="flex-1"
-            variant={actionButton.variant || "default"}
-            onClick={actionButton.onClick}
-          >
-            {actionButton.label}
-          </Button>
-        )}
+      {(children || guideText) && (
+        <CardContent className="flex-1 space-y-4">
+          {children}
+          {guideText && (
+            <div className="text-sm text-muted-foreground bg-muted/50 p-3 rounded-md">
+              {guideText}
+            </div>
+          )}
+        </CardContent>
+      )}
+      {(actionButton || solution) && (
+        <CardFooter
+          className={cn(
+            "flex gap-2",
+            actionButton ? "justify-between" : "justify-end",
+          )}
+        >
+          {actionButton && (
+            <Button
+              className="flex-1"
+              variant={actionButton.variant || "default"}
+              onClick={actionButton.onClick}
+            >
+              {actionButton.label}
+            </Button>
+          )}
 
-        {solution && (
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button variant="outline" size="icon" title="비급 보기">
-                <BookOpen className="h-4 w-4" />
-              </Button>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>{solution.title}</DialogTitle>
-                <DialogDescription>{solution.description}</DialogDescription>
-              </DialogHeader>
-              <div className="rounded-md bg-muted p-4 overflow-x-auto">
-                <pre className="text-sm font-mono text-foreground whitespace-pre-wrap">
-                  {solution.code}
-                </pre>
-              </div>
-              {solution.review && (
-                <div className="mt-4 rounded-md border border-green-200 bg-green-50 p-4 dark:border-green-800 dark:bg-green-900/10">
-                  <h4 className="mb-2 flex items-center font-semibold text-green-800 dark:text-green-300">
-                    <CheckCircle2 className="mr-2 h-4 w-4" />
-                    사부님의 평가
-                  </h4>
-                  <div className="text-sm text-green-700 dark:text-green-400 [&_p]:text-inherit">
-                    <MarkdownViewer content={solution.review} />
-                  </div>
+          {solution && (
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="outline" size="icon" title="비급 보기">
+                  <BookOpen className="h-4 w-4" />
+                </Button>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>{solution.title}</DialogTitle>
+                  <DialogDescription>{solution.description}</DialogDescription>
+                </DialogHeader>
+                <div className="rounded-md bg-muted p-4 overflow-x-auto">
+                  <pre className="text-sm font-mono text-foreground whitespace-pre-wrap">
+                    {solution.code}
+                  </pre>
                 </div>
-              )}
-            </DialogContent>
-          </Dialog>
-        )}
-      </CardFooter>
+                {solution.review && (
+                  <div className="mt-4 rounded-md border border-green-200 bg-green-50 p-4 dark:border-green-800 dark:bg-green-900/10">
+                    <h4 className="mb-2 flex items-center font-semibold text-green-800 dark:text-green-300">
+                      <CheckCircle2 className="mr-2 h-4 w-4" />
+                      사부님의 평가
+                    </h4>
+                    <div className="text-sm text-green-700 dark:text-green-400 [&_p]:text-inherit">
+                      <MarkdownViewer content={solution.review} />
+                    </div>
+                  </div>
+                )}
+              </DialogContent>
+            </Dialog>
+          )}
+        </CardFooter>
+      )}
     </Card>
   );
 }

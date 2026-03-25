@@ -7,14 +7,14 @@ import { getTopic, getGates } from '@/lib/curriculum';
 
 export function GatePage({ gate, topicId }) {
   const topic = getTopic(topicId);
-  const topicTitle = topic?.title?.split('. ')[1]?.split(':')[0] ?? topicId;
+  const topicTitle = topic?.shortTitle ?? topicId;
 
   const gates = getGates(topicId);
   const prevGate = gates.find((g) => g.id === gate.id - 1) ?? null;
   const nextGate = gates.find((g) => g.id === gate.id + 1) ?? null;
 
   return (
-    <div className="container mx-auto max-w-5xl space-y-8 pb-10">
+    <div className="container mx-auto max-w-5xl space-y-8 pt-8 pb-10">
       {/* 브레드크럼 */}
       <nav className="flex items-center gap-1 text-sm text-muted-foreground">
         <Link href="/training" className="hover:text-foreground transition-colors">
