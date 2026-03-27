@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "코드도장 | React 정공법 수련",
+  title: "코드도보통지 | React 정공법",
   description: "7대 문파 49관문으로 체득하는 리액트 정공법",
 };
 

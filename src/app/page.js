@@ -9,12 +9,12 @@ export default function Home() {
       <main className="max-w-5xl mx-auto space-y-12 py-12">
         <div className="text-center space-y-4">
           <h1 className="text-4xl font-bold tracking-tight text-foreground">
-            🥋 코드도장: React 정공법 수련
+            코드도보통지: React 정공법
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            "정공법(正攻法)"으로 익히는 리액트의 핵심 원리와 실전 기술.
+            React의 핵심 원리를 그림과 실습으로 배운다.
             <br />
-            7대 문파 49관문을 순서대로 수련하며 기본기를 다지십시오.
+            7대 문파 49관문을 순서대로 정복하며 기본기를 다지십시오.
           </p>
         </div>
 

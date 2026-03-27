@@ -3,7 +3,7 @@ import { ChevronRight } from "lucide-react";
 import { getAllTopicIds, getTopic } from "@/lib/curriculum";
 
 export const metadata = {
-  title: "수련장 | 코드도장",
+  title: "수련장 | 코드도보통지",
   description: "7대 문파 목록",
 };
 
