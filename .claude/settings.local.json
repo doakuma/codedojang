@@ -18,7 +18,11 @@
       "Bash(cd:*)",
       "Bash(npm install:*)",
       "Bash(npm list:*)",
-      "Bash(node -e \"const s = require\\(''''@codesandbox/sandpack-react''''\\); console.log\\(Object.keys\\(s\\).filter\\(k => k.includes\\(''''andpack''''\\)\\).join\\(''''\\\\n''''\\)\\)\")"
+      "Bash(node -e \"const s = require\\(''''@codesandbox/sandpack-react''''\\); console.log\\(Object.keys\\(s\\).filter\\(k => k.includes\\(''''andpack''''\\)\\).join\\(''''\\\\n''''\\)\\)\")",
+      "Bash(grep -E \"^\\\\s+\\\\{$|title:|slug:|mission:\" c:/Private/2026/codedojang/src/lib/curriculum.js)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
     ]
   }
 }
