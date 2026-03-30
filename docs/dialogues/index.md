@@ -10,6 +10,7 @@
 | 01 | [Next.js App Router 선택 — generateStaticParams 분석](./01-next-js-choice.md) | `next-js-choice` | 2026-03-30 |
 | 02 | [순수 RSC — React Server Components 분석](./02-rsc-server-components.md) | `next-js-choice` 2부 | 2026-03-30 |
 | 03 | [layout.js 메타데이터와 SEO](./03-metadata-seo.md) | `next-js-choice` 3부 | 2026-03-30 |
+| 04 | [Next.js App Router 라우팅 — 세그먼트, 슬러그, 동적 경로](./04-routing.md) | `slug-routing` | 2026-03-30 |
 
 ## 남은 주제
 
