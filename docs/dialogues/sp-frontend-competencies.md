@@ -1,4 +1,4 @@
-# 대담 05 — 프론트엔드 개발자의 소양
+# 특별대담 — 프론트엔드 개발자의 소양
 
 > **키워드:** `frontend-competencies`
 > **날짜:** 2026-03-31
@@ -10,7 +10,7 @@
 
 **Q. React/Next.js 설계 원칙을 넘어서, 프론트엔드 개발자로서 가져야 할 소양이 뭐야?**
 
-7개 레이어로 나눌 수 있어.
+8개 레이어로 나눌 수 있어.
 
 ---
 
@@ -21,6 +21,19 @@
 - **렌더링 파이프라인** — HTML 파싱 → CSSOM → DOM → Layout → Paint → Composite
 - **이벤트 루프** — 콜스택, 마이크로태스크, 매크로태스크
 - **네트워크** — HTTP 캐싱, CDN, 요청 비용
+  - ✅ DNS — 도메인 → IP 변환, DNS 캐시
+  - ✅ HTTP — HyperText Transfer Protocol 어원
+  - ✅ 상태코드 — 2xx, 3xx, 4xx, 5xx
+  - ✅ HTTP 캐시 — Cache-Control, max-age, no-cache, no-store, public, private
+  - ✅ 304 Not Modified
+  - ✅ 데이터 호출 방식 — fetch, axios, react-query, swr
+  - ✅ ETag — 파일 변경 여부 확인하는 지문
+  - ⬜ CDN — Vercel이 어떻게 캐시를 관리하는지
+  - ⬜ HTTPS — HTTP와 뭐가 다른가, SSL/TLS
+  - ⬜ 요청/응답 구조 — 헤더, 바디, 메서드(GET/POST/PUT/DELETE)
+  - ⬜ CORS — 왜 로컬에서 API 호출하면 에러나는가
+  - ⬜ 쿠키/세션/토큰 — 인증 방식
+  - ⬜ WebSocket — 실시간 통신
 - **Web API** — localStorage, fetch, IntersectionObserver...
 
 React가 뭘 추상화하고 있는지 알려면 그 아래가 보여야 해.
@@ -51,7 +64,20 @@ React가 뭘 추상화하고 있는지 알려면 그 아래가 보여야 해.
 
 ---
 
-### 레이어 4. 성능을 의식한다
+### 레이어 4. 데이터를 다룬다
+
+> "UI와 데이터를 연결하는 것이 프론트엔드의 핵심 업무다"
+
+- **호출 방식** — fetch, axios, XMLHttpRequest
+- **비동기 처리** — async/await, Promise
+- **상태 관리** — react-query, swr, 로딩/에러 상태
+- **캐시 전략** — Cache-Control, HTTP 캐시, CDN
+
+레이어 1~2에서 배운 것들이 실전에서 교차하는 지점.
+
+---
+
+### 레이어 5. 성능을 의식한다
 
 > "동작하는 것과 빠른 것은 다르다"
 
@@ -62,7 +88,7 @@ React가 뭘 추상화하고 있는지 알려면 그 아래가 보여야 해.
 
 ---
 
-### 레이어 5. 사용자를 의식한다
+### 레이어 6. 사용자를 의식한다
 
 > "화면 너머에 사람이 있다"
 
@@ -73,7 +99,7 @@ React가 뭘 추상화하고 있는지 알려면 그 아래가 보여야 해.
 
 ---
 
-### 레이어 6. 협업 도구로서의 코드를 쓴다
+### 레이어 7. 협업 도구로서의 코드를 쓴다
 
 > "6개월 후의 나도 읽을 수 있는가"
 
@@ -84,7 +110,7 @@ React가 뭘 추상화하고 있는지 알려면 그 아래가 보여야 해.
 
 ---
 
-### 레이어 7. 시스템을 본다
+### 레이어 8. 시스템을 본다
 
 > "내 코드가 전체 흐름의 어디에 있는가"
 
@@ -100,8 +126,8 @@ React가 뭘 추상화하고 있는지 알려면 그 아래가 보여야 해.
 ```
 대담 01~04에서 다룬 것
   레이어 3 — 컴포넌트 설계 (RSC, SSG, 라우팅 구조)
-  레이어 4 — 성능 (SSG로 번들 없음, CDN 배포)
-  레이어 7 — 시스템 (빌드 파이프라인, Vercel 배포 흐름)
+  레이어 5 — 성능 (SSG로 번들 없음, CDN 배포)
+  레이어 8 — 시스템 (빌드 파이프라인, Vercel 배포 흐름)
 ```
 
 ```
@@ -109,8 +135,9 @@ React가 뭘 추상화하고 있는지 알려면 그 아래가 보여야 해.
   레이어 1 — 브라우저 (이벤트 루프, localStorage 의존도)
   레이어 2 — JS 순수 (클로저 — stale-closure 관문이 이게 목적!)
   레이어 3 — 상태 관리 (Context/Zustand 안 쓰는 이유)
-  레이어 5 — 사용자 (에러 처리, 로딩 상태)
-  레이어 6 — 협업 (네이밍, 컨벤션 — CLAUDE.md가 이미 역할 중)
+  레이어 4 — 데이터 (fetch, react-query, 캐시 전략)
+  레이어 6 — 사용자 (에러 처리, 로딩 상태)
+  레이어 7 — 협업 (네이밍, 컨벤션 — CLAUDE.md가 이미 역할 중)
 ```
 
 ---
@@ -127,13 +154,14 @@ React가 뭘 추상화하고 있는지 알려면 그 아래가 보여야 해.
 | 레이어 3 — 컴포넌트 | SooryeonLayout/Card 역할 | `sooryeon-structure` |
 | 레이어 3 — 상태 | Context/Zustand 안 쓰는 이유 | `state-management` |
 | 레이어 3 — 데이터 | curriculum.js 단일 소스 | `curriculum-single-source` |
-| 레이어 4 — 성능 | Sandpack 선택 이유 | `sandpack-editor` |
-| 레이어 4 — 성능 | 관문 500개 되면? | `curriculum-scaling` |
-| 레이어 6 — 협업 | TypeScript 미사용 | `javascript-only` |
-| 레이어 6 — 협업 | 테스트 전략 | `testing-strategy` |
-| 레이어 7 — 시스템 | Tailwind + shadcn 조합 | `tailwind-shadcn` |
-| 레이어 7 — 시스템 | remark/react-markdown | `markdown-engine` |
-| 레이어 7 — 시스템 | slug-routing 최선인가 | `slug-routing` |
+| 레이어 4 — 데이터 | fetch/axios/react-query | `data-fetching` |
+| 레이어 5 — 성능 | Sandpack 선택 이유 | `sandpack-editor` |
+| 레이어 5 — 성능 | 관문 500개 되면? | `curriculum-scaling` |
+| 레이어 7 — 협업 | TypeScript 미사용 | `javascript-only` |
+| 레이어 7 — 협업 | 테스트 전략 | `testing-strategy` |
+| 레이어 8 — 시스템 | Tailwind + shadcn 조합 | `tailwind-shadcn` |
+| 레이어 8 — 시스템 | remark/react-markdown | `markdown-engine` |
+| 레이어 8 — 시스템 | slug-routing 최선인가 | `slug-routing` |
 
 ---
 
@@ -141,9 +169,10 @@ React가 뭘 추상화하고 있는지 알려면 그 아래가 보여야 해.
 
 1. **레이어 1~2가 기초체력** — 브라우저와 JS를 모르면 프레임워크는 마법처럼 보인다
 2. **레이어 3이 일상 업무의 대부분** — 컴포넌트 설계가 프론트 개발의 핵심 판단
-3. **레이어 4~5는 의식하지 않으면 안 챙기게 됨** — "동작한다"에서 멈추기 쉬운 영역
-4. **레이어 6~7은 혼자보다 팀에서 더 중요** — 코드가 도구임을 인식하는 성숙도
-5. **코드도보통지 커리큘럼 자체가 레이어 2의 체득을 목표로 함** — stale-closure, batching, race-condition...
+3. **레이어 4가 레이어 1~2의 실전 교차점** — fetch 하나를 잘 쓰려면 브라우저/JS 둘 다 알아야
+4. **레이어 5~6은 의식하지 않으면 안 챙기게 됨** — "동작한다"에서 멈추기 쉬운 영역
+5. **레이어 7~8은 혼자보다 팀에서 더 중요** — 코드가 도구임을 인식하는 성숙도
+6. **코드도보통지 커리큘럼 자체가 레이어 2의 체득을 목표로 함** — stale-closure, batching, race-condition...
 
 ---
 
