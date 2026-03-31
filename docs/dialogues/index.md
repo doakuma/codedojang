@@ -12,6 +12,7 @@
 | 03 | [layout.js 메타데이터와 SEO](./03-metadata-seo.md) | `next-js-choice` 3부 | 2026-03-30 |
 | 04 | [Next.js App Router 라우팅 — 세그먼트, 슬러그, 동적 경로](./04-routing.md) | `slug-routing` | 2026-03-30 |
 | sp | [프론트엔드 개발자의 소양 — 7개 레이어와 프로젝트 매핑](./sp-frontend-competencies.md) | `frontend-competencies` | 2026-03-31 |
+| sp | [브라우저를 이해한다 1부 — 렌더링 파이프라인 + 이벤트 루프](./sp-browser-1.md) | `browser-rendering`, `event-loop` | 2026-03-31 |
 
 ## 남은 주제
 
